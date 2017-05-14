@@ -9,12 +9,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use App\Employee;
 /**
  * Class HomeController
  * @package App\Http\Controllers
  */
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -31,8 +31,9 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function employee()
+    public function index()
     {
-        return view('adminlte::home');
+        $employees = Employee::all();
+        return view('employee/view_employees',['employees' => $employees ]);   
     }
 }

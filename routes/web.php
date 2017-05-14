@@ -11,12 +11,31 @@
 |
 */
 
-/*Route::get('/', function () {
-    #return view('welcome');
-    $name = DB::Connection()->getDatabaseName();
-    return 'Connected to '.$name;
-});*/
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Auth::routes();
+Route::get('/add_employee', function () {
+    return view('employee/add_employee');
+});
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/add_leave', function () {
+    return view('leave/add_leave');
+});
+
+Route::get('/view_employees', function () {
+    return view('employee/view_employees');
+});
+
+Route::get('/view_leaves', function () {
+    return view('leave/view_leaves');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    //    Route::get('/link1', function ()    {
+//        // Uses Auth Middleware
+//    });
+
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
+});

@@ -37,16 +37,16 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-user-o'></i> <span>Employee</span> <i class="fa fa-angle-down pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('view_employees')}}">View all</a></li>
-                    <li><a href="{{url('add_employee')}}">Add new</a></li>
+                    <li><a href="{{url('employee')}}">View all</a></li>
+                    <li><a href="{{url('employee/create')}}">Add new</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#"><i class='fa fa-plane'></i> <span>Leave</span> <i class="fa fa-angle-down pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('view_leaves')}}">View all</a></li>
-                    <li><a href="{{url('add_leave')}}">Add new</a></li>
+                    <li><a href="{{url('leave')}}">View all</a></li>
+                    <li><a href="{{url('leave/create')}}">Add new</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

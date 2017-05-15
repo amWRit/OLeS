@@ -15,17 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/add_employee', function () {
+/*Route::get('/add_employee', function () {
     return view('employee/add_employee');
-});
+});*/
 
 Route::get('/add_leave', function () {
     return view('leave/add_leave');
 });
 
-Route::get('/view_employees', function () {
+/*Route::get('/employee', function () {
     return view('employee/view_employees');
-});
+});*/
 
 Route::get('/view_leaves', function () {
     return view('leave/view_leaves');
@@ -38,4 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::Resource('employee','EmployeeController');
 });

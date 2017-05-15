@@ -51,64 +51,69 @@ desired effect
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{route('employee.store')}}" method="post">
+              {{csrf_field()}}
               <div class="box-body">
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('f_name') ?  $errors->first('f_name') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">First Name</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="John">
+                    <input type="text" name="f_name" class="form-control" id="f_name" placeholder="John">
+                    {!! $errors->first('f_name','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('l_name') ?  $errors->first('l_name') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">Last Name</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Doe">
+                    <input type="text" name="l_name" class="form-control" id="l_name" placeholder="Doe">
+                    {!! $errors->first('l_name','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('dob') ?  $errors->first('dob') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">DOB</label>
 
                   <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputEmail3" placeholder="">
+                    <input type="date" name="dob" class="form-control" id="dob" placeholder="">
+                    {!! $errors->first('dob','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('join_date') ?  $errors->first('join_date') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">Joined Date</label>
 
                   <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    <input type="date" name="join_date" class="form-control" id="join_date" placeholder="join_date">
+                    {!! $errors->first('join_date','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
-               <div class="form-group">
+               <div class="form-group {{ $errors->has('dept') ?  $errors->first('dept') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">Department</label>
                     <div class="col-sm-10">
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                      <select name="dept" class="form-control">
+                        <option>operations</option>
+                        <option>designer</option>
+                        <option>developer</option>
+                        <option>marketing</option>
+                        <option>account</option>
+                        <option>administration</option>
                       </select>
+                      {!! $errors->first('dept','<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
-               <div class="form-group">
+               <div class="form-group {{ $errors->has('emp_type') ?  $errors->first('emp_type') : '' }}">
                   <label for="inputEmail3" class="col-sm-2 control-label">Employee Type</label>
                     <div class="col-sm-10">
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                      <select name="emp_type" class="form-control">
+                        <option>admin</option>
+                        <option>employee</option>
                       </select>
+                      {!! $errors->first('emp_type','<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
@@ -116,7 +121,7 @@ desired effect
               <!-- /.box-body -->
               <div class="box-footer">
                 <button id = "cancel-btn" type="submit" class="btn btn-default">Cancel</button>
-                <button id = "register-btn" type="submit" class="btn btn-info pull-right">Register</button>
+                <input type="submit" class="btn btn-info pull-right"></input>
               </div>
               <!-- /.box-footer -->
             </form>

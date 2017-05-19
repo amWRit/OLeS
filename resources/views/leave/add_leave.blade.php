@@ -51,20 +51,22 @@ desired effect
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{route('leave.store')}}" method="post">
+              {{csrf_field()}}
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">User ID</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Employee Name</label>
+
 
                   <div class="col-sm-10">
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
-                      </select>
-                    </div>
+                    <select class="form-control">
+                      @foreach($employees as $employee)                    
+                        <option  name = "emp_name">{{$employee->f_name}}</option> 
+                        {!! $errors->first('emp_name','<p class="help-block">:message</p>') !!}
+                     
+                      @endforeach
+                    </select>
+                  </div>
                 </div>
 
 
@@ -72,13 +74,13 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">Leave Type</label>
 
                   <div class="col-sm-10">
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
-                      </select>
+                    <select class="form-control">
+                      @foreach($leave_types as $leave_type)                    
+                        <option  name = "leave_type">{{$leave_type->name}}</option> 
+                        {!! $errors->first('leave_type','<p class="help-block">:message</p>') !!}                     
+                      @endforeach
+                    </select>
+                    
                     </div>
                 </div>
 
@@ -86,13 +88,12 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">Leave Category</label>
 
                    <div class="col-sm-10">
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
-                      </select>
+                    <select class="form-control">
+                      @foreach($leave_categories as $leave_category)                    
+                        <option  name = "leave_category">{{$leave_category->name}}</option>                      
+                      @endforeach
+                    </select>
+                    {!! $errors->first('leave_category','<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
@@ -100,7 +101,8 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">From </label>
 
                   <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    <input name = "fromDate" type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    {!! $errors->first('fromDate','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
@@ -109,7 +111,8 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">To </label>
 
                   <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    <input name="toDate" type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    {!! $errors->first('toDate','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
@@ -117,7 +120,8 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">Note </label>
 
                   <div class="col-sm-10">
-                    <textarea class="form-control" rows="3" placeholder="Enter ..." autocomplete="off"></textarea>
+                    <textarea name = "note" class="form-control" rows="3" placeholder="Enter ..." autocomplete="off"></textarea>
+                    {!! $errors->first('note','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
 
@@ -125,7 +129,7 @@ desired effect
               <!-- /.box-body -->
               <div class="box-footer">
                 <button id = "cancel-btn" type="submit" class="btn btn-default">Cancel</button>
-                <button id = "register-btn" type="submit" class="btn btn-info pull-right">Register</button>
+                <input type="submit" class="btn btn-info pull-right"></input>
               </div>
               <!-- /.box-footer -->
             </form>

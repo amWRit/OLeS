@@ -19,17 +19,17 @@ Route::get('/', function () {
     return view('employee/add_employee');
 });*/
 
-Route::get('/add_leave', function () {
-    return view('leave/add_leave');
-});
+// Route::get('/add_leave', function () {
+//     return view('leave/add_leave');
+// });
 
 /*Route::get('/employee', function () {
     return view('employee/view_employees');
 });*/
 
-Route::get('/view_leaves', function () {
-    return view('leave/view_leaves');
-});
+// Route::get('/view_leaves', function () {
+//     return view('leave/view_leaves');
+// });
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
@@ -42,4 +42,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::Resource('employee','EmployeeController');
+    Route::Resource('leave','LeaveController');
 });

@@ -47,7 +47,7 @@ desired effect
             <!-- Your Page Content Here -->
             <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Add New Leave Details</h3>
+              <h3 class="box-title">Add New Leave Details ---</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -59,13 +59,12 @@ desired effect
 
 
                   <div class="col-sm-10">
-                    <select class="form-control">
+                    <select name = "emp_name" class="form-control">
                       @foreach($employees as $employee)                    
-                        <option  name = "emp_name">{{$employee->f_name}}</option> 
-                        {!! $errors->first('emp_name','<p class="help-block">:message</p>') !!}
-                     
+                        <option >{{$employee->f_name}}</option>                                     
                       @endforeach
                     </select>
+                      {!! $errors->first('emp_name','<p class="help-block">:message</p>') !!} 
                   </div>
                 </div>
 
@@ -74,13 +73,12 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">Leave Type</label>
 
                   <div class="col-sm-10">
-                    <select class="form-control">
+                    <select name = "leave_type" class="form-control">
                       @foreach($leave_types as $leave_type)                    
-                        <option  name = "leave_type">{{$leave_type->name}}</option> 
-                        {!! $errors->first('leave_type','<p class="help-block">:message</p>') !!}                     
+                        <option >{{$leave_type->name}}</option>                                   
                       @endforeach
                     </select>
-                    
+                    {!! $errors->first('leave_type','<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
@@ -88,9 +86,9 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">Leave Category</label>
 
                    <div class="col-sm-10">
-                    <select class="form-control">
+                    <select name = "leave_category" class="form-control">
                       @foreach($leave_categories as $leave_category)                    
-                        <option  name = "leave_category">{{$leave_category->name}}</option>                      
+                        <option>{{$leave_category->name}}</option>                           
                       @endforeach
                     </select>
                     {!! $errors->first('leave_category','<p class="help-block">:message</p>') !!}
@@ -99,9 +97,8 @@ desired effect
 
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">From </label>
-
                   <div class="col-sm-10">
-                    <input name = "fromDate" type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    <input name = "fromDate" type="date" class="form-control" id="inputEmail3" placeholder="fromDate">
                     {!! $errors->first('fromDate','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>
@@ -111,7 +108,7 @@ desired effect
                   <label for="inputEmail3" class="col-sm-2 control-label">To </label>
 
                   <div class="col-sm-10">
-                    <input name="toDate" type="date" class="form-control" id="inputEmail3" placeholder="join_date">
+                    <input name="toDate" type="date" class="form-control" id="inputEmail3" placeholder="toDate">
                     {!! $errors->first('toDate','<p class="help-block">:message</p>') !!}
                   </div>
                 </div>

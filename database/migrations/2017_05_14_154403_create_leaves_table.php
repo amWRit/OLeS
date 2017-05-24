@@ -22,7 +22,8 @@ class CreateLeavesTable extends Migration
             $table->date('from');
             $table->date('to');
             $table->string('note');
-
+            $table->timestamps();
+            
             $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');;
             $table->foreign('leave_type_id')->references('id')->on('leave_types')->onDelete('cascade');;
             $table->foreign('leave_cat_id')->references('id')->on('leave_categories')->onDelete('cascade');;
